@@ -9,6 +9,6 @@ class Account(models.Model):
 
     id = models.IntegerField(primary_key=True, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    type = models.CharField(max_length=10, default=None, unique=True)
+    type = models.CharField(max_length=10, default=None)
     amount = models.DecimalField(default=0, max_digits=12, decimal_places=2)
     
