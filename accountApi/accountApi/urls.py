@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/user/', include('user.api.urls', 'user_api')),
     path('api/account/', include('account.api.urls', 'account_api')),
     path('api/transaction/', include('transaction.api.urls', 'transaction_api')),
+    path('', include('adminView.urls')),
 ]
