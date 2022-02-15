@@ -2,11 +2,10 @@
 
 {% block body %}
 <div class="container">
-    <h5 class="card-text">User Name: {{  user.name }}</h5>
+    <h5 class="card-text">User Name: {{ user.name }}</h5>
 </div>
 <br/>
 <br/>
-
     <div class="row">
         <div class="col-md-6">
             <h4>Accounts</h4>
@@ -20,12 +19,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for accounts in account %}
+                {% for account in accounts %}
                     <tr>
                         <td>{{ account.id }}</td>
                         <td>{{ account.user }}</td>
                         <td>{{ account.type }}</td>
-                        <td>{{ transaction.amount }}</td>
+                        <td>{{ account.amount }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -43,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for transactions in transaction %}
+                {% for transaction in transactions %}
                     <tr>
                         <td>{{ transaction.id }}</td>
                         <td>{{ transaction.user }}</td>
@@ -56,9 +55,7 @@
         </div>
         </div>
     </div>
-
-    @if (accounts)
+    {% if accounts or transactions %}
         <a href="{% url 'adminView:csv' user.id %}" class="btn btn-primary">Download CSV</a>
-    @endif
-    <a href="{% url 'adminView:csv' user.id %}" class="btn btn-primary">Download CSV</a>
+    {% endif %}
 {% endblock %}
