@@ -5,7 +5,7 @@ from user.models import User
 class Account(models.Model):
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     id = models.IntegerField(primary_key=True, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)

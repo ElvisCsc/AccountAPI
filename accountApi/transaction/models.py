@@ -6,7 +6,7 @@ from user.models import User
 class Transaction(models.Model):
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     id = models.IntegerField(primary_key=True, unique=True)
     account = models.ForeignKey(Account, on_delete=models.SET_NULL, default=None, null=True)
